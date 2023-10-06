@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @Entity
@@ -21,4 +23,6 @@ public class SeatInAShow extends BaseModel{
     private SeatStatus seatStatus;
     @ManyToOne
     private Ticket ticket; // ManyToOne
+
+    private Date lockedAt;
 }
