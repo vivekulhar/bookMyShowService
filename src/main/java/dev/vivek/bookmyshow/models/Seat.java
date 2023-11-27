@@ -20,6 +20,6 @@ public class Seat extends BaseModel{
     @ManyToOne
     private Auditorium auditorium; // ManyToOne
 
-    @OneToMany(mappedBy = "seat")
-    private List<SeatInAShow> seatInAShows; // OneToMany
+    /*@OneToMany(mappedBy = "seat")
+    private List<SeatInAShow> seatInAShows; // OneToMany*/
 }

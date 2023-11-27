@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 @Getter
 @Setter
-@Entity
+@Entity(name = "movie_shows")
 public class MovieShow extends BaseModel{
     private Date bookingTime;
     private Date startTime;
@@ -21,8 +21,9 @@ public class MovieShow extends BaseModel{
     private Movie movie; // ManyToOne
     @ManyToOne
     private Auditorium auditorium; // ManyToOne
-    @OneToMany(mappedBy = "movieShow")
+
+    /*@OneToMany(mappedBy = "movieShow")
     private List<SeatInAShow> seatInAShows; // OneToMany
     @OneToMany(mappedBy = "movieShow")
-    private List<SeatTypeInShow> seatTypeInAShows; // OneToMany
+    private List<SeatTypeInShow> seatTypeInAShows; // OneToMany*/
 }

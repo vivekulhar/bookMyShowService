@@ -19,7 +19,7 @@ public class Payment extends BaseModel{
     private PaymentMode paymentMode;
     @Enumerated(EnumType.ORDINAL)
     private PaymentStatus paymentStatus;
-    @OneToOne
+    @OneToOne(mappedBy = "payment")
     private Ticket ticket;
 
 }

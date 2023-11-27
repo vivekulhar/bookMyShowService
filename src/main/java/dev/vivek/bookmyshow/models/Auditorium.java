@@ -14,11 +14,12 @@ public class Auditorium extends BaseModel{
     final int maximumRows=10;
     final int maximumColumns=10;
 
-    @OneToMany(mappedBy = "auditorium")
-    private List<Seat> seats; // OneToMany
+    /*@OneToMany(mappedBy = "auditorium")
+    private List<Seat> seats; // OneToMany*/
 
-    @ElementCollection
+
     @Enumerated(EnumType.ORDINAL)
+    @ElementCollection
     private List<Features> supportedFeatures; // ElementCollection
 
     @ManyToOne

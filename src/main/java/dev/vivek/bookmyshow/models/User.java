@@ -14,6 +14,7 @@ public class User extends BaseModel{
     private String userName;
     private String password;
     private String phoneNo;
+    private String email;
     @ElementCollection
     @Enumerated(EnumType.ORDINAL)
     private List<Role> roles; // ManyToMany

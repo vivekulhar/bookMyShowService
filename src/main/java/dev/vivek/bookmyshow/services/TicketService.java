@@ -11,6 +11,8 @@ import dev.vivek.bookmyshow.repositories.TicketRepository;
 import dev.vivek.bookmyshow.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.ArrayList;
@@ -84,4 +86,27 @@ public class TicketService {
         return false;
 
     }
+
+    /*@Transactional(isolation = Isolation.SERIALIZABLE, timeout = 2)
+    public List<ShowSeat> getAndLokcShowSeats(List<Seat> seats, Optional<Show> showOptional) throws SeatNotAvailableException {
+        List<ShowSeat> showSeats = showSeatRepository.findAllBySeatInAndShow(seats, showOptional.get());
+
+        for (ShowSeat showSeat: showSeats) {
+            if (!(showSeat.getStatus().equals(ShowSeatStatus.AVAILABLE) || (
+                    showSeat.getStatus().equals(ShowSeatStatus.LOCKED)))) { // && new Date( - showSeat.getLockedAt())))) {
+                throw new SeatNotAvailableException();
+            }
+        }
+
+        List<ShowSeat> savedShowSeats = new ArrayList<>();
+
+        for (ShowSeat showSeat: showSeats) {
+            showSeat.setStatus(ShowSeatStatus.LOCKED);
+            showSeat.setLockedAt(new Date());
+            savedShowSeats.add(showSeatRepository.save(showSeat));
+        }
+
+
+        return showSeats;
+    }*/
 }
